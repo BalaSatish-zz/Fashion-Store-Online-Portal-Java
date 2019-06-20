@@ -1,0 +1,61 @@
+<!Doctype html>
+<head>
+	<title>Register Page</title>
+	<link rel="stylesheet" type="text/css" href="Style.css">
+	<script src="Javascript.js"></script>
+	<script type="text/javascript">
+		function PlaceData(uname,gender,mobile,email){
+			document.getElementById("username").setAttribute('value',uname);
+			if(gender=='Male'){
+				document.getElementById("Male").checked=true;
+			}
+			else if(gender=='Female'){
+				document.getElementById("Female").checked=true;
+			}
+			else if(gender=='Other'){
+				document.getElementById("Other").checked=true;
+			}
+			document.getElementById("mobile").setAttribute('value',mobile);
+			document.getElementById("email").setAttribute('value',email);
+		}
+		function Display(x) {
+			var error_msg = document.getElementById("error_msg");
+			error_msg.innerHTML=""+x;
+		}
+		function Registered() {
+			var error_msg = document.getElementById("error_msg");
+			error_msg.innerHTML="Registration Successfull";
+			setTimeout(GO, 1000);
+		}
+		function GO(){
+			window.open("Login.html");
+		}
+		
+	</script>
+</head>
+<body>
+<div class="Header">
+<a href="./Home.html" style="text-decoration: none;"><p class="title">Fashion Store</p></a>
+</div>
+<div class="Register">
+	<form name="register" action="./ms" method="POST" onsubmit="return validateform();">
+		Username:<br><input type="text" id="username" minlength="6" name="username" placeholder="Enter Your Username" required><br>
+		Password:<br><input type="password" id="password1" minlength="6" name="password1" placeholder="Enter Your Password"required><br>
+		Confirm Password:<br><input type="password" id="password2" minlength="6" name="password2" placeholder="Confirm Your Password"required><br>
+		Date of Birth:<br><input type="date" name="dob" id="dob" required><br>
+		Gender:<br><input type="radio" name="Gender" value="Male" id="Male" required>Male
+		<input type="radio" name="Gender" id="Female" value="Female" required>Female <input type="radio" name="Gender" value="Other" id="Other" required>Other<br>
+		Mobile:<br><input type="number" min="6000000000" max="10000000000"maxlength="10" minlength="10" name="mobile" id="mobile" placeholder="Enter Your Mobile Number" required><br>
+		Email-ID:<br><input type="email" name="email" id="email" placeholder="Enter Your Email-ID" required><br>
+		<input type="text" name="PageValue" hidden="true" value="Register"><br>
+		<input type="submit" value="Register">
+		<h3 id="error_msg" style="color:rgba(255,0,0,0.6);"></h3>
+</form>
+</div>
+<div class="Footer">
+	<pre><b>E-Mail:</b>
+	support@fashionstore.com</pre>
+	<pre><b>Telephone:</b>
+	+91 9632420152</pre>
+</div>
+</body>

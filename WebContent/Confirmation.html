@@ -1,0 +1,38 @@
+<!Doctype html>
+<head>
+<meta charset="ISO-8859-1">
+	<title>Confirmation Page</title>
+	<link rel="stylesheet" type="text/css" href="Style.css">
+	<script>
+		var TableStart = "<h1>Order Details</h1><table border='4' cellspacing='5' align='center'><tr><th>SL.NO</th><th>Item Name</th><th>Item Type</th><th>Price</th><th>Quantity</th><th>Cost</th></tr>";
+		var TableMiddle="";
+		var	TableEnd ="";
+		function TableData(SN,IN,IT,P,Q,C) {
+			TableMiddle =TableMiddle + "<tr><td>"+SN+"</td><td>"+IN+"</td><td>"+IT+"</td><td>"+P+"</td><td>"+Q+"</td><td>"+C+"</td></tr>"; 
+		}
+		function PrintTable(total) {
+			TableEnd = "<tr><td colspan='5'>Total</td><td>"+total+"</td></tr></table>";
+			var Space = document.getElementById("Confirmation");
+			var Table = TableStart+TableMiddle+TableEnd;
+			Space.innerHTML=""+Table+Space.innerHTML;
+		}
+	</script>
+</head>
+<body>
+<div class="Header">
+<a href="./Home.html" style="text-decoration: none;"><p class="title">Fashion Store</p></a>
+</div>
+<div class="Confirmation" id="Confirmation" align="center">
+	<form name="shopping" action="./ms" method="POST">
+		<input type="text" name="PageValue" hidden="true" value="Confirmation"><br>
+		<input type="submit" value="SendMail">
+		<h3 name="error_msg" style="color:rgba(255,0,0,0.6);"></h3>
+	</form>
+</div>
+<div class="Footer">
+	<pre><b>E-Mail:</b>
+	support@fashionstore.com</pre>
+	<pre><b>Telephone:</b>
+	+91 9632420152</pre>
+</div>
+</body>

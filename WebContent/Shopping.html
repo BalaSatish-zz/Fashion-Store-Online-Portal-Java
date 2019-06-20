@@ -1,0 +1,105 @@
+<!Doctype html>
+<head>
+<meta charset="ISO-8859-1">
+	<title>Shopping Page</title>
+	<link rel="stylesheet" type="text/css" href="Style.css">
+	<script>
+		var ctotal=0;
+		var mtotal=0;
+		var i=1;
+		var myvar = setInterval(sale,800);
+		function sale(){
+			var x = document.getElementById("imgtag");
+			if(i<=3){
+				x.src="i"+i+".jpg";
+				i++;
+			}
+			else{
+				i=1;
+				x.src="i"+i+".jpg";
+			}
+		}
+		function AddItem(x) {
+			var q1 = document.getElementById('q1');
+			var q2 = document.getElementById('q2');
+
+			var r1 = document.getElementById('ClothesTotal');
+			var r2 = document.getElementById('MobilesTotal');
+			if(x=='c'){
+				if(ctotal>=5){
+					alert("Purchase of 5 same Items is not allowed");
+					return;
+				}
+				ctotal=ctotal+1;
+			}
+			if(x=='m'){
+				if(mtotal>=5){
+					alert("Purchase of 5 same Items is not allowed");
+					return;
+				}
+				mtotal=mtotal+1;
+			}
+			q1.innerHTML=""+ctotal;
+			q2.innerHTML=""+mtotal;
+			r1.value=""+ctotal;
+			r2.value=""+mtotal;
+			console.log("C: "+r1.value+"  m:"+r2.value);
+		}
+		function RemoveItem(x) {
+			var q1 = document.getElementById('q1');
+			var q2 = document.getElementById('q2');
+
+			var r1 = document.getElementById('ClothesTotal');
+			var r2 = document.getElementById('MobilesTotal');
+			if(x=='c' && ctotal>0){
+				ctotal=ctotal-1;
+			}
+			if(x=='m' && mtotal>0){
+				mtotal=mtotal-1;				
+			}
+			q1.innerHTML=""+ctotal;
+			q2.innerHTML=""+mtotal;
+			r1.value=""+ctotal;
+			r2.value=""+mtotal;
+			console.log("C: "+r1.value+"  m:"+r2.value);		}
+	</script>
+</head>
+<body>
+<div class="Header">
+<a href="./Home.html" style="text-decoration: none;"><p class="title">Fashion Store</p></a>
+</div>
+<div class="ShoppingImages">
+	<img src="i1.jpg" height="350" width="450" id="imgtag">
+</div>
+<div class="Shopping">
+	<form name="shopping" action="./ms" method="POST">
+		<p class="p1"> Clothes:</p>
+		<select name="Cloth">
+			<option value="Pant">Pant - &#x20b9; 899</option>
+			<option value="Shirt">Shirt - &#x20b9; 899</option>
+			<option value="Shorts">Shorts - &#x20b9; 399</option>
+		</select>
+		<button class="b1" type="button" onclick="AddItem('c');">+</button><b class="quantity" id="q1">0</b><button type="button" onclick="RemoveItem('c');" class="b1">-</button>
+		<br>
+		<p class="p1">Mobiles:</p>
+		<select  name="Mobile">
+			<option value="Apple">Apple - &#x20b9; 99,999</option>
+			<option value="OnePlus">OnePlus - &#x20b9; 49,999</option>
+			<option value="Samsung">Samsung - &#x20b9; 64,999</option>
+			<option value="Xiaomi">Xiaomi - &#x20b9; 21,999</option>
+		</select>
+		<button class="b1" type="button"onclick="AddItem('m');">+</button><b class="quantity" id="q2">0</b><button type="button" class="b1" onclick="RemoveItem('m');">-</button><br><br>
+		<input type="text" name="PageValue" hidden="true" value="Shopping"><br>
+		<input type="text" name="ClothesTotal" id="ClothesTotal" hidden="true" value="">
+		<input type="text" name="MobilesTotal" id="MobilesTotal" hidden="true" value="">
+		<input type="submit" value="Order">
+		<h3 name="error_msg" style="color:rgba(255,0,0,0.6);"></h3>
+	</form>
+</div>
+<div class="Footer">
+	<pre><b>E-Mail:</b>
+	support@fashionstore.com</pre>
+	<pre><b>Telephone:</b>
+	+91 9632420152</pre>
+</div>
+</body>

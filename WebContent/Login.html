@@ -1,0 +1,35 @@
+<!Doctype html>
+<head>
+	<title>Login Page</title>
+	<link rel="stylesheet" type="text/css" href="Style.css">
+	<script src="Javascript.js"></script>
+	<script type="text/javascript">
+		function Display(x) {
+			var error_msg = document.getElementById("error_msg");
+			error_msg.innerHTML=""+x;
+		}
+		function PlaceData(uname){
+			document.getElementById("username").setAttribute('value',uname);
+		}
+	</script>
+</head>
+<body>
+<div class="Header">
+<a href="./Home.html" style="text-decoration: none;"><p class="title">Fashion Store</p></a>
+</div>
+<div class="Login">
+	<form method="POST" name="login" action="./ms">
+		Username:<br><input type="text" id="username" minlength="6" name="username" placeholder="Enter Your Username" required><br>
+		Password:<br><input type="password" id="password1" minlength="6" name="password1" placeholder="Enter Your Password"required><br>
+		<input type="text" name="PageValue" hidden="true" value="Login"><br>
+		<input type="submit" value="Login">
+		<h3 id="error_msg" style="color:rgba(255,0,0,0.6);"></h3>
+	</form>
+</div>
+<div class="Footer">
+	<pre><b>E-Mail:</b>
+	support@fashionstore.com</pre>
+	<pre><b>Telephone:</b>
+	+91 9632420152</pre>
+</div>
+</body>
