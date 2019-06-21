@@ -297,8 +297,8 @@ public class MainServlet extends HttpServlet {
 				}
 		}
 		if(pageValue.equalsIgnoreCase("Confirmation")){
-			final String username = "fashionstoreotp@gmail.com";
-			final String password = "Bunny8520";
+			final String username = "xyz@gmail.com";
+			final String password = "xxyyzz";
 
 			Properties props = new Properties();
 			props.put("mail.smtp.auth", "true");
@@ -335,7 +335,7 @@ public class MainServlet extends HttpServlet {
 
 		         // Part two is attachment
 		         messageBodyPart = new MimeBodyPart();
-		         String filename = "D:/"+FileName;
+		         String filename = ""+FileName;
 		         DataSource source = new FileDataSource(filename);
 		         messageBodyPart.setDataHandler(new DataHandler(source));
 		         messageBodyPart.setFileName(filename);
