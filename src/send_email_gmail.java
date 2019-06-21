@@ -12,8 +12,8 @@ public class send_email_gmail {
 	
 	public static void main(String[] args) {
 
-		final String username = "fashionstoreotp@gmail.com";
-		final String password = "Bunny8520";
+		final String username = "xyz@gmail.com";
+		final String password = "xxxyyyzzz";
 
 		Properties props = new Properties();
 		props.put("mail.smtp.auth", "true");
@@ -48,7 +48,7 @@ public class send_email_gmail {
 
 	         // Part two is attachment
 	         messageBodyPart = new MimeBodyPart();
-	         String filename = "D:/satish133515.pdf";
+	         String filename = "satish133515.pdf";
 	         DataSource source = new FileDataSource(filename);
 	         messageBodyPart.setDataHandler(new DataHandler(source));
 	         messageBodyPart.setFileName(filename);
